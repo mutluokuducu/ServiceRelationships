@@ -35,7 +35,7 @@ configurations {
 jar {
     enabled = true
     group = 'com.publicissapient'
-    manifest { attributes "Main-Class": "com.publicissapient.Application" }
+    manifest { attributes "Main-Class": "com.interlinksoftware.Application" }
 }
 
 bootJar {
@@ -43,7 +43,7 @@ bootJar {
     classifier = 'boot'
 }
 
-mainClassName = 'com.publicissapient.Application'
+mainClassName = 'com.interlinksoftware.Application'
 defaultTasks 'run'
 
 sourceCompatibility = JavaVersion.VERSION_11
