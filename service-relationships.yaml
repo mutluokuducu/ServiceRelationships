@@ -1,0 +1,38 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-relationships
+  labels:
+    app: service-relationships
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-relationships
+  template:
+    metadata:
+      labels:
+        app: service-relationships
+    spec:
+      containers:
+      - name: service-relationships
+        image: mutluokuducu/service-relationships
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-relationships-service
+spec:
+  selector:
+    app: service-relationships
+  type: LoadBalancer  
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 30002
+
